@@ -15,9 +15,9 @@ class Movie{
 }
 
 // films
-$movie1 = new Movie("Pierino", "la storia italiana", "6", ["comedy", "animation"]);
-$movie2 = new Movie("Pippo", "alla ricerca di pluto", "6", ["animation"]);
-$movie3 = new Movie("Topolino", "a casa con Minnie", "6", ["hentai"]);
+$movie1 = new Movie("Pierino", "la storia italiana", "5", ["comedy", "animation"]);
+$movie2 = new Movie("Pippo", "alla ricerca di pluto", "3", ["animation"]);
+$movie3 = new Movie("Topolino", "a casa con Minnie", "2", ["hentai"]);
 
 $movies= [$movie1, $movie2, $movie3] 
 
@@ -36,17 +36,19 @@ $movies= [$movie1, $movie2, $movie3]
 
 
 </head>
-<body>
+<body class="bg-dark">
     <ul class="list-unstyled">
     <?php foreach($movies as $item){ ?>
-        <li class="card">
+        <li class="card m-3 p-3" style="width: 200px;">
             <h3><?php echo $item->title ?></h3>
             <p><?php echo $item->description ?></p>
             <p><?php echo $item->vote ?></p>
-            <p><?php foreach($item -> genre as $generi){ ?>
-                <?php echo $generi ?>
-            <?php } ?>
-            </p>
+            <ul class="list-unstyled">
+                <?php foreach($item -> genre as $generi){ ?>
+                <li>- <?php echo $generi ?></li>
+                <?php } ?>
+            </ul>
+            
         </li>
     <?php } ?>
     </ul>
