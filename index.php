@@ -1,17 +1,23 @@
 <?php
-class Movie{
+class Movie
+{
     public $title;
     public $description;
     public $vote;
     public $genre;
 
-    function __construct($tit, $descr, $vote, $gen){
-        $this -> title = $tit;
-        $this -> description = $descr;
-        $this -> vote = $vote;
-        $this -> genre = $gen;
+    public function __construct($tit, $descr, $vote, $gen)
+    {
+        $this->title = $tit;
+        $this->description = $descr;
+        $this->vote = $vote;
+        $this->genre = $gen;
     }
 
+    public function getMovieDet($par)
+    {
+        return $par;
+    }
 }
 
 // films
@@ -19,13 +25,14 @@ $movie1 = new Movie("Pierino", "la storia italiana", "5", ["comedy", "animation"
 $movie2 = new Movie("Pippo", "alla ricerca di pluto", "3", ["animation"]);
 $movie3 = new Movie("Topolino", "a casa con Minnie", "2", ["hentai"]);
 
-$movies= [$movie1, $movie2, $movie3] 
+$movies = [$movie1, $movie2, $movie3]
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,21 +43,23 @@ $movies= [$movie1, $movie2, $movie3]
 
 
 </head>
+
 <body class="bg-dark">
     <ul class="list-unstyled">
-    <?php foreach($movies as $item){ ?>
-        <li class="card m-3 p-3" style="width: 200px;">
-            <h3><?php echo $item->title ?></h3>
-            <p><?php echo $item->description ?></p>
-            <p><?php echo $item->vote ?></p>
-            <ul class="list-unstyled">
-                <?php foreach($item -> genre as $generi){ ?>
-                <li>- <?php echo $generi ?></li>
-                <?php } ?>
-            </ul>
-            
-        </li>
-    <?php } ?>
+        <?php foreach ($movies as $item) { ?>
+            <li class="card m-3 p-3" style="width: 200px;">
+                <h3><?php echo $item->getMovieDet($item->title) ?></h3>
+                <p><?php echo $item->getMovieDet($item->description) ?></p>
+                <p><?php echo $item->getMovieDet($item->vote) ?></p>
+                <ul class="list-unstyled">
+                    <?php foreach ($item->genre as $generi) { ?>
+                        <li>- <?php echo $item->getMovieDet($generi) ?></li>
+                    <?php } ?>
+                </ul>
+
+            </li>
+        <?php } ?>
     </ul>
 </body>
+
 </html>
