@@ -1,32 +1,5 @@
 <?php
-class Movie
-{
-    public $title;
-    public $description;
-    public $vote;
-    public $genre;
-
-    public function __construct($tit, $descr, $vote, $gen)
-    {
-        $this->title = $tit;
-        $this->description = $descr;
-        $this->vote = $vote;
-        $this->genre = $gen;
-    }
-
-    public function getMovieDet($par)
-    {
-        return $par;
-    }
-}
-
-// films
-$movie1 = new Movie("Pierino", "la storia italiana", "5", ["comedy", "animation"]);
-$movie2 = new Movie("Pippo", "alla ricerca di pluto", "3", ["animation"]);
-$movie3 = new Movie("Topolino", "a casa con Minnie", "2", ["hentai"]);
-
-$movies = [$movie1, $movie2, $movie3]
-
+include __DIR__ . "/database.php"
 ?>
 
 
